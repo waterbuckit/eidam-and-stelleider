@@ -24,7 +24,7 @@ import heart from '../images/heart.png';
 				Eidam and Stelleider on eiderdook hill
 			</h1>
 			<div class="h-full relative">
-				<div class="absolute inset-0 overflow-hidden">
+				<div id="eiders" class="absolute inset-0 overflow-hidden">
 					<img class="eye absolute w-[2%] shadow rounded-full top-[47.5%] left-[49%]" src={eye}>
 					<img class="eye absolute w-[2%] shadow rounded-full top-[44%] left-[57%]" src={eye}>
 					<img id="stella-heart" style={{ 
@@ -84,7 +84,7 @@ import heart from '../images/heart.png';
 						<i></i> 
 					</div>
 				</div>
-				<img id="eiders" class="rounded-xl shadow-xl max-w-screen max-h-screen" src={eiders}>
+				<img class="rounded-xl shadow-xl max-w-screen max-h-screen" src={eiders}>
 			</div>
 		</div>
 	
@@ -230,6 +230,23 @@ import heart from '../images/heart.png';
 			`;
 
 			document.body.appendChild(leavesStyling)
+			
+			const eiders = document.getElementById('eiders');
+
+			if(eiders) {
+				const eyes = document.querySelectorAll<HTMLElement>('.eye');
+
+				eiders.addEventListener('mouseover', () => {
+					eyes.forEach((eye) => {
+						eye.style.display = 'block';
+					});
+				})
+				eiders.addEventListener('mouseout', () => {
+					eyes.forEach((eye) => {
+						eye.style.display = 'none';
+					});
+				})
+			}
 
 			const moveEyes = (evt: MouseEvent) => {
 				const eyes = document.querySelectorAll<HTMLElement>('.eye');
