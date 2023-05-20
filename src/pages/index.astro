@@ -1,9 +1,6 @@
 ---
-// Component Imports
-import Button from '../components/Button.astro';
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
+import eiders from '../images/eiders-in-autumn.png';
+import eye from '../images/eye.png';
 ---
 
 <html lang="en">
@@ -12,13 +9,38 @@ import Button from '../components/Button.astro';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
+		<title>Eidam and Stelleider</title>
 	</head>
 
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
+	<body
+		class="bg-gradient-to-t from-orange-500 to-orange-200 h-screen relative"
+		>
+		<div class="grid place-items-center content-center absolute inset-0 max-h-screen px-6 py-2">
+			<h1 class="sr-only">
+				Eidam and Stelleider on eiderdook hill
+			</h1>
+			<div class="h-full relative">
+				<div class="absolute inset-0">
+					<img class="eye absolute w-4 shadow rounded-full top-[47.5%] left-[49%]" src={eye}>
+					<img class="eye absolute w-4 shadow rounded-full top-[44%] left-[57%]" src={eye}>
+				</div>
+				<img id="eiders" class="rounded-xl shadow-xl max-w-screen max-h-screen" src={eiders}>
+			</div>
 		</div>
+		<script>
+			document.addEventListener('mousemove', (evt) => {
+				const eyes = document.querySelectorAll<HTMLElement>('.eye');
+
+				eyes.forEach((eye) => {
+
+					let x = eye.getBoundingClientRect().left + eye.clientWidth / 2;
+       		let y = eye.getBoundingClientRect().top + eye.clientHeight / 2;
+
+       		let radian = Math.atan2(evt.pageX - x, evt.pageY - y);
+       		let theta = radian * (180 / Math.PI) * -1 + 270;
+					eye.style.transform = `rotate(${theta - 180}deg)`;
+				})
+			});
+		</script>
 	</body>
 </html>
