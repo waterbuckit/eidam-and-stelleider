@@ -24,7 +24,7 @@ import heart from '../images/heart.png';
 				Eidam and Stelleider on eiderdook hill
 			</h1>
 			<div class="h-full relative">
-				<div class="absolute inset-0">
+				<div class="absolute inset-0 overflow-y-hidden">
 					<img class="eye absolute w-[2%] shadow rounded-full top-[47.5%] left-[49%]" src={eye}>
 					<img class="eye absolute w-[2%] shadow rounded-full top-[44%] left-[57%]" src={eye}>
 					<img id="stella-heart" style={{ 
@@ -51,42 +51,43 @@ import heart from '../images/heart.png';
 							height: '12%'
 						}}
 						type="button" class="opacity-0 absolute" />
+					<div id="leaves" class="w-full h-full overflow-x-hidden pointer-events-none">
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i>
+						<i></i> 
+					</div>
 				</div>
 				<img id="eiders" class="rounded-xl shadow-xl max-w-screen max-h-screen" src={eiders}>
 			</div>
 		</div>
-		<div id="leaves" class="w-full h-full overflow-x-hidden pointer-events-none">
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i>
-			<i></i> 
-		</div>
+	
 		<script>
 			const leavesStyling = document.createElement('style');
 			leavesStyling.innerText = `
